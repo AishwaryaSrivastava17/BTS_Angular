@@ -13,6 +13,44 @@ export class CreateComponent implements OnInit {  //controller
   //bugArray:Bug[]=[];
   constructor(private bugService:BugService) { }
   save(){
+    if (!this.bug.name.trim()) {
+      alert("Bug name is empty");
+    }
+    else if (this.bug.name.length > 10) {
+      alert("Bug name cannot be more than 10 character");
+    }
+    else if (!this.bug.projectId.trim()) {
+      alert("Project id is empty");
+    }
+
+    else if (!this.bug.testerId.trim()) {
+      alert("Tster id is empty");
+    }
+
+    else if (!this.bug.product.trim()) {
+      alert("Product name is empty");
+    }
+
+    else if (!this.bug.module.trim()) {
+      alert("Module name is empty");
+    }
+
+    else if (!this.bug.buildVersion.trim()) {
+      alert("Build version is empty");
+    }
+
+    else if (!this.bug.synopsis.trim()) {
+      alert("Synopsis is empty");
+    }
+    else if (this.bug.synopsis.length > 50) {
+      alert("Synopsis cannot be more than 50 character");
+    }
+    else if (!this.bug.description.trim()) {
+      alert("Please provide description");
+    }
+    else if (this.bug.description.length > 100) {
+      alert("description cannot be more than 100 character");
+    }
     const promise = this.bugService.save(this.bug);
     promise.subscribe(response=> {
       console.log(response);

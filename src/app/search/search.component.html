@@ -30,8 +30,9 @@
 
   </div>
 </div>
+<br>
 <table class="table table-striped">
-  <thead>
+  <tr>
     <th>Id</th>
     <th>Name</th>
     <th>Priority</th>
@@ -40,7 +41,7 @@
     <th>Synopsis</th>
     <th>Description</th>
     <th>Status</th>
-  </thead>
+  </tr>
   <tbody>
     <tr *ngFor='let bug of bugArray'>
       <td>{{bug.id}}</td>

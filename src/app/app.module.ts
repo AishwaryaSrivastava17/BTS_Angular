@@ -8,11 +8,13 @@ import { GetBugComponent } from './get-bug/get-bug.component';
 import { SearchComponent } from './search/search.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
+import { UpdateComponent } from './update/update.component';
 
 const appRoutes: Routes = [
   { path: '', component: CreateComponent }, //default, Home page
   { path: 'search', component: SearchComponent },
   { path: 'get-bug', component: GetBugComponent },
+  { path: 'update', component: UpdateComponent },
 ];
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ const appRoutes: Routes = [
     CreateComponent,
     GetBugComponent,
    SearchComponent,
-   HeaderComponent
+   HeaderComponent,
+   UpdateComponent
 
   ],
   imports: [RouterModule.forRoot(

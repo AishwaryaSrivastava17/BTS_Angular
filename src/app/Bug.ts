@@ -12,8 +12,8 @@ export class Bug{
   description:string='';
   submittedOn:Date=new Date();
   etaDate:Date=new Date();
-  priority:string='';
+  priority:string='LOW';
   status:string='NEW';
-  severity:string='';
-  type:string='';
+  severity:string='LOW';
+  type:string='UNITLEVEL';
 }

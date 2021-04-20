@@ -24,14 +24,17 @@ form {
 .bugLabel {
 	font-size: 20px;
 }
+ th, td ,thead{
+  border: 1px solid black;
 
-table {
-	margin-top: 50px;
 }
 
 span {
 	color: red;
 	margin-left: 3px;
+}
+table {
+	margin-top: 50px;
 }
 
 .searchForm {

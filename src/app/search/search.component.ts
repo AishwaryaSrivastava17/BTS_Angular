@@ -10,7 +10,7 @@ import { BugService } from '../bug.service';
 export class SearchComponent implements OnInit {
   bug:Bug = new Bug();
   bugResult:any;
-  bugArray:any;
+  bugArray:Bug[]=[];
   name: string = '';
   status:string = 'NEW';
   constructor(private bugService: BugService) { }
@@ -21,12 +21,12 @@ export class SearchComponent implements OnInit {
       promise.subscribe(response => {
         this.bugResult = response;
         if(this.bugResult.length){
-          this.bugResult.forEach((bug: any) => {
+          this.bugResult.forEach((bug: Bug) => {
             this.bugArray.push(bug);
           });
         }
         else{
-          alert("Invalid Bug Name");
+          alert("Bug Name not in records");
         }
       },
         error => {

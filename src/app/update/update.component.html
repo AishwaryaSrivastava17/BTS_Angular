@@ -1,8 +1,14 @@
-<div>
-  <h2>Bug Details</h2>
-</div>
 <br>
-
+<div class="form-group row searchForm">
+  <br>
+  <form id="bugSearchForm" class="col-sm-9 row">
+    <label for="bugName" class="col-sm-4 bugLabel">Bug Name<span>*</span></label>
+    <input class="form-control col-sm-7" id='bugName'>
+  </form>
+  <button type="button" id="searchBug" class="btn btn-primary col-sm-3 searchButton" onclick="getBug()">Get Bug</button>
+</div>
+<div>
+<div>
   <div class="container">
     <div class="row">
       <div class="col">
@@ -93,6 +99,30 @@
           </div>
         </div>
         <div class="form-group">
+          <label class="control-label col-sm-3 col-md-offset-2" for="pwd">Status</label>
+          <div class="col-sm-9">
+            <select [(ngModel)]='bug.status'  class="form-control">
+
+              <option value="NEW">New</option>
+              <option value="ASSIGNED">Assigned</option>
+              <option value="OPEN">Open</option>
+              <option value="FIXED">Fixed</option>
+              <option value="PENDING_RETEST">Pending Retest</option>
+              <option value="RETEST">Retest</option>
+              <option value="REOPEN">Reopen</option>
+              <option value="VERIFIED">Verified</option>
+              <option value="CLOSED">Closed</option>
+              <option value="REJECTED">Rejected</option>
+              <option value="DUPLICATE">Duplicate</option>
+              <option value="DEFERRED">Deferred</option>
+              <option value="NOT_A_BUG">Not A Bug</option>
+              <option value="NEED_MORE_INFO">Need More Info</option>
+              <option value="COULDNOT_REPRODUCE">Could Not Reproduce</option>
+              <option value="WONT_FIX">Wont Fix</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
           <label class="control-label col-sm-3 col-md-offset-2" for="pwd">Developer ID<span>*</span></label>
           <div class="col-sm-9">
             <input  [(ngModel)]='bug.developerID'  type="text" class="form-control"
@@ -116,3 +146,4 @@
     </div>
   </div>
 <button (click)='save()' class="btn btn-primary btn-block">Save</button>
+
