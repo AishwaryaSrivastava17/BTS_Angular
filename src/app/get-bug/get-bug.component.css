@@ -1,0 +1,47 @@
+* {
+	box-sizing: border-box;
+}
+
+h1 {
+	text-align: center;
+	margin-top: -40px;
+	margin-bottom: 15px;
+}
+
+h2 {
+	text-align: center;
+}
+
+form {
+	width: 40%;
+	margin: 30px auto;
+}
+
+#bugName {
+	font-size: 20px;
+}
+
+.bugLabel {
+	font-size: 20px;
+}
+
+table {
+	margin-top: 50px;
+}
+
+span {
+	color: red;
+	margin-left: 3px;
+}
+
+.searchForm {
+	width: 50%;
+	margin: 0px auto;
+}
+
+.searchButton{
+  margin-left: 5px;
+  height: 40%;
+	margin-top: 30px;
+	font-size: 20px;
+}

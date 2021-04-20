@@ -1,18 +1,35 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from "@angular/forms";
 import { AppComponent } from './app.component';
+import { CreateComponent } from './create/create.component';
+import { HttpClientModule } from '@angular/common/http';
+import { GetBugComponent } from './get-bug/get-bug.component';
+import { SearchComponent } from './search/search.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
 
+const appRoutes: Routes = [
+  { path: '', component: CreateComponent }, //default, Home page
+  { path: 'search', component: SearchComponent },
+  { path: 'get-bug', component: GetBugComponent },
+];
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreateComponent,
+    GetBugComponent,
+   SearchComponent,
+   HeaderComponent
+
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
+  imports: [RouterModule.forRoot(
+    appRoutes,
+    { enableTracing: true } // <-- debugging purposes only
+  ),
+    BrowserModule, FormsModule, HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] //first component
 })
 export class AppModule { }

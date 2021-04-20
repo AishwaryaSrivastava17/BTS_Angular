@@ -1,0 +1,56 @@
+<h2>Search Bug</h2>
+<div class="row formContainer">
+  <div class="col-sm-5 row">
+    <label class="col-sm-4" for="bugName">Bug Name</label>
+    <input [(ngModel)]='name' class="form-control col-sm-8" name="bugName" id='bugName'>
+  </div>
+  <div class="col-sm-5 row">
+    <label for="status" class="col-sm-4">Bug Status</label>
+    <select [(ngModel)]='status' name="status" class="form-control col-sm-8" id='status'>
+      <option value="NEW">New</option>
+      <option value="ASSIGNED">Assigned</option>
+      <option value="OPEN">Open</option>
+      <option value="FIXED">Fixed</option>
+      <option value="PENDING_RETEST">Pending Retest</option>
+      <option value="RETEST">Retest</option>
+      <option value="REOPEN">Reopen</option>
+      <option value="VERIFIED">Verified</option>
+      <option value="CLOSED">Closed</option>
+      <option value="REJECTED">Rejected</option>
+      <option value="DUPLICATE">Duplicate</option>
+      <option value="DEFERRED">Deferred</option>
+      <option value="NOT_A_BUG">Not A Bug</option>
+      <option value="NEED_MORE_INFO">Need More Info</option>
+      <option value="COULDNOT_REPRODUCE">Could Not Reproduce</option>
+      <option value="WONT_FIX">Wont Fix</option>
+    </select>
+  </div>
+  <div class="col-sm-2">
+    <button (click)='getBugName()' class="btn btn-primary btn-block">Search</button>
+
+  </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Priority</th>
+    <th>Type</th>
+    <th>Severity</th>
+    <th>Synopsis</th>
+    <th>Description</th>
+    <th>Status</th>
+  </thead>
+  <tbody>
+    <tr *ngFor='let bug of bugArray'>
+      <td>{{bug.id}}</td>
+      <td>{{bug.name}}</td>
+      <td>{{bug.priority}}</td>
+      <td>{{bug.type}}</td>
+      <td>{{bug.severity}}</td>
+      <td>{{bug.synopsis}}</td>
+      <td>{{bug.description}}</td>
+      <td>{{bug.status}}</td>
+    </tr>
+  </tbody>
+</table>
