@@ -6,6 +6,12 @@ import { Bug } from './Bug';
   providedIn: 'root'
 })
 export class BugService {
+  update(bug: Bug, id: string) {
+    return this.http.put('http://localhost:8082/bug'+'/'+id, bug, {
+      headers: { "content-type": 'application/json' }
+
+    });
+  }
 
   constructor(private http: HttpClient) { }
   //Create Bug

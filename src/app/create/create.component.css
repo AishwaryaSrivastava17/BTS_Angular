@@ -31,3 +31,10 @@ footer {
 	transform: translateX(-50%);
 	height: 100px;
 }
+#validation {
+  color:black;
+  font-size:12px;
+  font-weight: bold;
+  margin-top: 3px;
+  text-align: right;
+}

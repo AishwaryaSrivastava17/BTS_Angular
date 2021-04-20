@@ -21,9 +21,9 @@ export class SearchComponent implements OnInit {
       promise.subscribe(response => {
         this.bugResult = response;
         if(this.bugResult.length){
-          this.bugResult.forEach((bug: Bug) => {
-            this.bugArray.push(bug);
-          });
+
+        this.bugArray=this.bugResult;
+
         }
         else{
           alert("Bug Name not in records");

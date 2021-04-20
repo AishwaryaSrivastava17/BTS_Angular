@@ -11,7 +11,7 @@ export class Bug{
   synopsis:string='';
   description:string='';
   submittedOn:Date=new Date();
-  etaDate:Date=new Date();
+  etaDate:string='';
   priority:string='LOW';
   status:string='NEW';
   severity:string='LOW';

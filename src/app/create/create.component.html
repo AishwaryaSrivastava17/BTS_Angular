@@ -60,7 +60,7 @@
           <div class="col-sm-9">
             <div class="textarea-wrapper">
             <textarea pInputTextArea [(ngModel)]="bug.description"  class="form-control" (ngModelChange)="valueChange2(bug.description.length)" maxlength="100" placeholder="Description should be between 10 and 100 characters" required></textarea>
-            <span class="remaning">{{remainingText1}}</span>
+            <span id='validation' class="remaning">{{remainingText1 + ' characters left'}}</span>
           </div>
           </div>
         </div>
@@ -107,7 +107,7 @@
           <div class="col-sm-9">
             <div class="textarea-wrapper">
             <textarea pInputTextArea [(ngModel)]="bug.synopsis"  class="form-control" (ngModelChange)="valueChange(bug.synopsis.length)" maxlength="50" placeholder="Synopsis should be between 10 and 50 characters" required></textarea>
-            <span class="remaning">{{remainingText}}</span>
+            <span id='validation' class="remaning">{{remainingText + " characters left"}}</span>
           </div>
           </div>
         </div>

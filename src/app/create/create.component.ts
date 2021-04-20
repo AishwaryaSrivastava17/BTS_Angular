@@ -10,8 +10,8 @@ import { BugService } from '../bug.service';
 export class CreateComponent implements OnInit {  //controller
  // title:string = 'Userform';
   bug:Bug=new Bug(); //model -stores all form data
-  remainingText: number | undefined;
-  remainingText1: number | undefined;
+  remainingText=50 ;
+  remainingText1= 100;
   //bugArray:Bug[]=[];
 
 

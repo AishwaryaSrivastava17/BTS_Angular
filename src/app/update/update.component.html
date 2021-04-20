@@ -3,9 +3,10 @@
   <br>
   <form id="bugSearchForm" class="col-sm-9 row">
     <label for="bugName" class="col-sm-4 bugLabel">Bug Name<span>*</span></label>
-    <input class="form-control col-sm-7" id='bugName'>
+    <input  [(ngModel)]='name'  type="text" class="form-control"
+    placeholder="Name" name="Name" required>
   </form>
-  <button type="button" id="searchBug" class="btn btn-primary col-sm-3 searchButton" onclick="getBug()">Get Bug</button>
+  <button type="button" id="searchBug" class="btn btn-primary col-sm-3 searchButton" (click)="getBugName()">Get Bug</button>
 </div>
 <div>
 <div>
@@ -145,5 +146,5 @@
 </div>
     </div>
   </div>
-<button (click)='save()' class="btn btn-primary btn-block">Save</button>
+<button (click)='update()' class="btn btn-primary btn-block">Save</button>
 
