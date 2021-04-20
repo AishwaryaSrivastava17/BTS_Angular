@@ -10,8 +10,18 @@ import { BugService } from '../bug.service';
 export class CreateComponent implements OnInit {  //controller
  // title:string = 'Userform';
   bug:Bug=new Bug(); //model -stores all form data
+  remainingText: number | undefined;
+  remainingText1: number | undefined;
   //bugArray:Bug[]=[];
+
+
   constructor(private bugService:BugService) { }
+  valueChange(value: number) {
+    this.remainingText = 50 - value;
+   }
+   valueChange2(value1: number) {
+    this.remainingText1 = 100 - value1;
+   }
   save(){
     if (!this.bug.name.trim()) {
       alert("Bug name is empty");
@@ -51,6 +61,7 @@ export class CreateComponent implements OnInit {  //controller
     else if (this.bug.description.length > 100) {
       alert("description cannot be more than 100 character");
     }
+
     const promise = this.bugService.save(this.bug);
     promise.subscribe(response=> {
       console.log(response);
