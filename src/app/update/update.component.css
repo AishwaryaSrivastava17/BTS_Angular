@@ -1,33 +1,26 @@
-body {
-	background-color: rgb(214, 221, 226);
+.formContainer{
+  width: 50%;
+  margin: 20px auto;
 }
-
-h1 {
-	text-align: center;
-	margin-top: -40px;
-	margin-bottom: 15px;
+.nameLable{
+  align-self: center;
+  text-align: right;
 }
-
-h2 {
-	text-align: center;
-	margin-top: 20px;
-	margin-left: -90px;
+.main{
+  margin: 30px 0px;
 }
-
-.submitBtn {
-	margin-top: 0.4em;
-	margin-bottom: 0.4em;
+.updateBug{
+  width: 80%;
+  margin: 0px auto 25px;
 }
-
 span {
 	color: red;
 	margin-left: 4px;
 }
-
-footer {
-	position: relative;
-	bottom: 0;
-	left: 50%;
-	transform: translateX(-50%);
-	height: 100px;
+.fieldRow{
+ margin-bottom: 20px;
+}
+button{
+  width: 90%;
+  margin: 0px auto;
 }

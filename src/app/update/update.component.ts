@@ -12,8 +12,20 @@ bug:Bug=new Bug();
 bugResult:any;
   bugArray:Bug[]=[];
   name: string = '';
+  remainingText=50 ;
+  remainingText1= 100;
+  //bugArray:Bug[]=[];
 
-  constructor(private bugService: BugService) { }
+
+  constructor(private bugService:BugService) { }
+  valueChange(value: number) {
+    this.remainingText = 50 - value;
+   }
+   valueChange1(value1: number) {
+    this.remainingText1 = 100 - value1;
+   }
+
+
 update()
 {const promise = this.bugService.update(this.bug,this.bug.id);
   promise.subscribe((response: any)=> {

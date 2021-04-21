@@ -1,150 +1,119 @@
-<br>
-<div class="form-group row searchForm">
-  <br>
-  <form id="bugSearchForm" class="col-sm-9 row">
-    <label for="bugName" class="col-sm-4 bugLabel">Bug Name<span>*</span></label>
-    <input  [(ngModel)]='name'  type="text" class="form-control"
-    placeholder="Name" name="Name" required>
-  </form>
-  <button type="button" id="searchBug" class="btn btn-primary col-sm-3 searchButton" (click)="getBugName()">Get Bug</button>
-</div>
-<div>
-<div>
-  <div class="container">
+<div class="row formContainer">
+  <form id='searchBugForm' class="col-sm-10">
     <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label class="control-label col-sm-3  col-md-offset-4" for="Name">Name<span>*</span></label>
-          <div class="col-sm-9">
-            <input  [(ngModel)]='bug.name'  type="text" class="form-control"
-            placeholder="Name" name="Name" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-3  col-md-offset-4" for="pwd">Priority</label>
-          <div class="col-sm-9">
-            <select  [(ngModel)]='bug.priority' placeholder='Priority' type="text" class="form-control">
-              <option value="LOW">LOW</option>
-              <option value="MEDIUM">MEDIUM</option>
-              <option value="HIGH">HIGH</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-3  col-md-offset-4 " for="pwd">Type</label>
-          <div class="col-sm-9">
-            <select [(ngModel)]='bug.type' type="text" class="form-control" >
-              <option value="UNITLEVEL">UNIT-LEVEL</option>
-              <option value="SYSTEMLEVEL">SYSTEM-LEVEL</option>
-              <option value="OUTOFBOUND">OUT OF BOUND</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-3  col-md-offset-4 ">ETA
-            Date<span>*</span>
-          </label>
-          <div class="col-sm-9">
-            <input type='date' [(ngModel)]='bug.etaDate'  class="form-control" >
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-3 col-md-offset-4" >Module<span>*</span></label>
-          <div class="col-sm-9">
-            <input [(ngModel)]='bug.module' type='text'
-              placeholder="Module" name="module" required type="text" class="form-control">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-3 col-md-offset-4" for="pwd">Version</label>
-          <div class="col-sm-9">
-            <input  [(ngModel)]='bug.buildVersion'type='text' class="form-control"
-              placeholder="Build Version" name="buildVersion">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-3 col-md-offset-4" for="pwd">Description<span>*</span></label>
-          <div class="col-sm-9">
-            <textarea [(ngModel)]='bug.synopsis' id='synopsis' class="form-control" name="synopsis" rows="2" placeholder="Synopsis should be between 10 and 50 characters" required></textarea>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label class="control-label col-sm-3 col-md-offset-2" for="pwd">Severity</label>
-          <div class="col-sm-9">
-            <select [(ngModel)]='bug.severity'  class="form-control">
-              <option value="LOW">LOW</option>
-              <option value="MEDIUM">MEDIUM</option>
-              <option value="HIGH">HIGH</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="control-label col-sm-3 col-md-offset-2">Project
-            Id<span>*</span>
-          </label>
-          <div class="col-sm-9">
-            <input  [(ngModel)]='bug.projectId'  type="text" class="form-control"
-              placeholder="Project Id" name="projectId" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-3 col-md-offset-2">Tester
-            Id<span>*</span>
-          </label>
-          <div class="col-sm-9">
-            <input  [(ngModel)]='bug.testerId'  type="text" class="form-control"
-              placeholder="Tester Id" name="testerId" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-3 col-md-offset-2" for="pwd">Status</label>
-          <div class="col-sm-9">
-            <select [(ngModel)]='bug.status'  class="form-control">
-
-              <option value="NEW">New</option>
-              <option value="ASSIGNED">Assigned</option>
-              <option value="OPEN">Open</option>
-              <option value="FIXED">Fixed</option>
-              <option value="PENDING_RETEST">Pending Retest</option>
-              <option value="RETEST">Retest</option>
-              <option value="REOPEN">Reopen</option>
-              <option value="VERIFIED">Verified</option>
-              <option value="CLOSED">Closed</option>
-              <option value="REJECTED">Rejected</option>
-              <option value="DUPLICATE">Duplicate</option>
-              <option value="DEFERRED">Deferred</option>
-              <option value="NOT_A_BUG">Not A Bug</option>
-              <option value="NEED_MORE_INFO">Need More Info</option>
-              <option value="COULDNOT_REPRODUCE">Could Not Reproduce</option>
-              <option value="WONT_FIX">Wont Fix</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-3 col-md-offset-2" for="pwd">Developer ID<span>*</span></label>
-          <div class="col-sm-9">
-            <input  [(ngModel)]='bug.developerID'  type="text" class="form-control"
-              placeholder="Developer ID" name="DeveloperID">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-3 col-md-offset-2" for="pwd">Synopsis<span>*</span></label>
-          <div class="col-sm-9">
-            <textarea [(ngModel)]='bug.synopsis' id='synopsis' class="form-control" name="synopsis" rows="2" placeholder="Synopsis should be between 10 and 50 characters" required></textarea>
-      </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-3 col-md-offset-2">Product<span>*</span></label>
-          <div class="col-sm-9">
-            <input  [(ngModel)]='bug.product' type="text" class="form-control"
-              placeholder="Product" name="product" required>
-          </div>
-        </div>
-</div>
+      <label class="col-sm-4 nameLable" for="bugName">Bug Name</label>
+      <input [(ngModel)]='name' class="form-control col-sm-8" name="bugName" id='bugName'>
     </div>
+  </form>
+  <div class="col-sm-2">
+    <button (click)='getBugName()' class="btn btn-primary btn-block">Search</button>
   </div>
-<button (click)='update()' class="btn btn-primary btn-block">Save</button>
-
+</div>
+<div class="main">
+  <form class="updateBug" id='updateBug'>
+    <div class="row fieldRow">
+      <div class="col-sm-6">
+        <label for="Name">Name<span>*</span></label>
+        <input [(ngModel)]='bug.name' type="text" class="form-control" id='name' placeholder="Name" name="name" required>
+      </div>
+      <div class="col-sm-6">
+        <label for="severity">Severity</label>
+        <select [(ngModel)]='bug.severity' class="form-control" id='severity' name="severity">
+          <option value="LOW">LOW</option>
+          <option value="MEDIUM">MEDIUM</option>
+          <option value="HIGH">HIGH</option>
+        </select>
+      </div>
+    </div>
+    <div class="row fieldRow">
+      <div class="col-sm-6">
+        <label for="priority">Priority</label>
+        <select [(ngModel)]='bug.priority' name="priority" class="form-control" id='priority'>
+          <option value="LOW">LOW</option>
+          <option value="MEDIUM">MEDIUM</option>
+          <option value="HIGH">HIGH</option>
+        </select>
+      </div>
+      <div class="col-sm-6">
+        <label for="projectId">Project Id<span>*</span></label>
+        <input [(ngModel)]='bug.projectId' type="text" class="form-control" id='projectid' placeholder="Project Id" name="projectId" required>
+      </div>
+    </div>
+    <div class="row fieldRow">
+      <div class="col-sm-6">
+        <label for="type">Type</label>
+        <select [(ngModel)]='bug.type' name="type" class="form-control" id='type'>
+          <option value="UNITLEVEL">UNIT-LEVEL</option>
+          <option value="SYSTEMLEVEL">SYSTEM-LEVEL</option>
+          <option value="OUTOFBOUND">OUT OF BOUND</option>
+        </select>
+      </div>
+      <div class="col-sm-6">
+        <label for="pwd">Tester Id<span>*</span></label>
+        <input [(ngModel)]='bug.testerId' type="text" class="form-control" id='testerid' placeholder="Tester Id" name="testerId" required>
+      </div>
+    </div>
+    <div class="row fieldRow">
+      <div class="col-sm-6">
+        <label for="type">Status</label>
+        <select [(ngModel)]='bug.status' name="status" class="form-control" id='status'>
+          <option value="NEW">New</option>
+          <option value="ASSIGNED">Assigned</option>
+          <option value="OPEN">Open</option>
+          <option value="FIXED">Fixed</option>
+          <option value="PENDING_RETEST">Pending Retest</option>
+          <option value="RETEST">Retest</option>
+          <option value="REOPEN">Reopen</option>
+          <option value="VERIFIED">Verified</option>
+          <option value="CLOSED">Closed</option>
+          <option value="REJECTED">Rejected</option>
+          <option value="DUPLICATE">Duplicate</option>
+          <option value="DEFERRED">Deferred</option>
+          <option value="NOT_A_BUG">Not A Bug</option>
+          <option value="NEED_MORE_INFO">Need More Info</option>
+          <option value="COULDNOT_REPRODUCE">Could Not Reproduce</option>
+          <option value="WONT_FIX">Wont Fix</option>
+        </select>
+      </div>
+      <div class="col-sm-6">
+        <label for="pwd">Developer Id<span>*</span></label>
+        <input [(ngModel)]='bug.developerId' type="text" class="form-control" id='developerid' placeholder="Developer Id" name="developerid" required>
+      </div>
+    </div>
+    <div class="row fieldRow">
+      <div class="col-sm-6">
+        <label for="etaDate">ETA Date<span>*</span></label>
+          <input [(ngModel)]='bug.etaDate' id='etaDate' type="date" name="etaDate" class="form-control">
+      </div>
+      <div class="col-sm-6">
+        <label for="product">Product<span>*</span></label>
+				<input [(ngModel)]='bug.product' type="text" class="form-control" id='product' placeholder="Product" name="product" required>
+      </div>
+    </div>
+    <div class="row fieldRow">
+      <div class="col-sm-6">
+        <label for="module">Module<span>*</span></label>
+				<input [(ngModel)]='bug.module' type="text" class="form-control" id='module' placeholder="Module" name="module" required>
+      </div>
+      <div class="col-sm-6">
+        <label for="buildVersion">Build Version</label>
+				<input [(ngModel)]='bug.buildVersion' type="text" class="form-control" id='buildVersion' placeholder="Build Version" name="buildVersion">
+      </div>
+    </div>
+    <div class="row fieldRow">
+      <div class="col-sm-6">
+        <label for="synopsis">Synopsis<span>*</span></label>
+				<textarea [(ngModel)]='bug.synopsis' (ngModelChange)='valueChange(bug.synopsis.length)' id='synopsis' class="form-control" name="synopsis" rows="2" placeholder="Synopsis should be between 10 and 50 characters" required></textarea>
+        <div>{{remainingText + " character left"}}</div>
+      </div>
+      <div class="col-sm-6">
+        <label for="descrption">Description<span>*</span></label>
+				<textarea [(ngModel)]='bug.description' (ngModelChange)='valueChange1(bug.description.length)' id='description' class="form-control" name="descrption" rows="2" placeholder="Description must be between 10 to 100 character" required></textarea>
+        <div>{{remainingText1 + " character left"}}</div>
+      </div>
+    </div>
+    <input [(ngModel)]='bug.submittedOn' type="hidden" name="submittedOn" id='submittedOn'>
+		<input [(ngModel)]='bug.id' type="hidden" name="bugId" id='bugId'>
+  </form>
+  <button (click)='update()' class="btn btn-primary btn-lg btn-block">Update</button>
+</div>

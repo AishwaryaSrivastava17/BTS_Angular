@@ -1,50 +1,26 @@
-* {
-	box-sizing: border-box;
+h2{
+  text-align: center;
+  margin: 10px 0;
 }
-
-h1 {
-	text-align: center;
-	margin-top: -40px;
-	margin-bottom: 15px;
+table{
+  margin-top: 30px;
 }
-
-h2 {
-	text-align: center;
+.formContainer{
+  width: 80%;
+  margin: 0px auto;
+  margin-top: 50px;
 }
-
-form {
-	width: 40%;
-	margin: 30px auto;
+label{
+  align-self: center;
+  margin-right: -20px;
 }
-
-#bugName {
-	font-size: 20px;
+button{
+  margin-left: -50px;
 }
-
-.bugLabel {
-	font-size: 20px;
-}
- th, td ,thead{
+th, td ,thead{
   border: 1px solid black;
-
 }
 
-span {
-	color: red;
-	margin-left: 3px;
-}
 table {
 	margin-top: 50px;
-}
-
-.searchForm {
-	width: 50%;
-	margin: 0px auto;
-}
-
-.searchButton {
-margin-left: 10px;
-	height: 40%;
-	margin-top: 30px;
-	font-size: 20px;
 }
