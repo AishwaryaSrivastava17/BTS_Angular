@@ -14,9 +14,7 @@ bugResult:any;
   name: string = '';
   remainingText=50 ;
   remainingText1= 100;
-  //bugArray:Bug[]=[];
-
-
+  
   constructor(private bugService:BugService) { }
   valueChange(value: number) {
     this.remainingText = 50 - value;

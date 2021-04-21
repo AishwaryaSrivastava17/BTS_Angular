@@ -10,15 +10,21 @@ import { BugService } from '../bug.service';
 export class SearchComponent implements OnInit {
   bug:Bug = new Bug();
   bugResult:any;
-  bugArray:Bug[]=[];
+  bugArray:any;
   name: string = '';
-  status:string = 'NEW';
+  status:string = '';
   constructor(private bugService: BugService) { }
-  getBugName() {
+
+  getBugNameandStatus() {
     const bugName = this.name.trim();
-    if (bugName) {
-      const promise = this.bugService.getBugName(bugName);
+
+    const bugStatus = this.status.trim();
+
+    if (bugName&&bugStatus) {
+      const promise = this.bugService.getBugNameandStatus(bugName,bugStatus);
+
       promise.subscribe(response => {
+
         this.bugResult = response;
         if(this.bugResult.length){
 
@@ -26,24 +32,58 @@ export class SearchComponent implements OnInit {
 
         }
         else{
-          alert("Bug Name not in records");
+          alert("Bug not in records");
         }
       },
-        error => {
+        (        error: any) => {
           console.log(error);
           alert('error happened..')
         })
     }
-    else {
-      const status = this.status;
-      const promise = this.bugService.getBugStatus(status);
+  else  if (bugName) {
+      if (bugName) {
+        const promise = this.bugService.getBugName(bugName);
+        promise.subscribe(response => {
+          this.bugResult = response;
+          console.log(this.bugResult);
+          if(this.bugResult.length){
+            this.bugResult.forEach((bug: Bug) => {
+              let etaDate = bug.etaDate;
+              if (etaDate) {
+                let finalEtaDate = etaDate.split('T')[0];
+                bug.etaDate = finalEtaDate;
+              }
+              this.bugArray=this.bugResult;
+            });
+          }
+          else{
+            alert("Bug Name not in records");
+          }
+        },
+          error => {
+            console.log(error);
+            alert('error happened..')
+          })
+      }
+  }
+  else  if (bugStatus) {
+    if (bugStatus) {
+      const promise = this.bugService.getBugStatus(bugStatus);
       promise.subscribe(response => {
         this.bugResult = response;
-        if (this.bugResult.length) {
-          this.bugArray = this.bugResult;
+        console.log(this.bugResult);
+        if(this.bugResult.length){
+          this.bugResult.forEach((bug: Bug) => {
+            let etaDate = bug.etaDate;
+            if (etaDate) {
+              let finalEtaDate = etaDate.split('T')[0];
+              bug.etaDate = finalEtaDate;
+            }
+            this.bugArray=this.bugResult;
+          });
         }
-        else {
-          alert("No Bug with Status : " + status + " found");
+        else{
+          alert("Bug Status not in records");
         }
       },
         error => {
@@ -51,7 +91,15 @@ export class SearchComponent implements OnInit {
           alert('error happened..')
         })
     }
+}
+  else{
+    const observable=this.bugService.getAllBugs();
+    observable.subscribe(response=>{
+      console.log(response);
+      this.bugArray=response})
   }
+}
   ngOnInit(): void {
+
   }
 }

@@ -8,6 +8,7 @@
     <div class="col-sm-6 row">
       <label for="status" class="col-sm-4">Bug Status</label>
       <select [(ngModel)]='status' name="status" class="form-control col-sm-8" id='status'>
+        <option value=""></option>
         <option value="NEW">New</option>
         <option value="ASSIGNED">Assigned</option>
         <option value="OPEN">Open</option>
@@ -28,7 +29,7 @@
     </div>
   </form>
   <div class="col-sm-2">
-    <button (click)='getBugName()' class="btn btn-primary btn-block">Search</button>
+    <button (click)='getBugNameandStatus()' class="btn btn-primary btn-block">Search</button>
   </div>
 </div>
 <table class="table table-striped table-bordered">

@@ -27,11 +27,15 @@ export class BugService {
   }
 
   //Get Bug by name
-  getBugName(bugname:string  ){
+  getBugName(bugname:string ){
     return this.http.get('http://localhost:8082/bug/name'+'/'+bugname);
   }
   //Get Bug by status
-  getBugStatus(bugstatus:string  ){
+  getBugStatus(bugstatus:string ){
     return this.http.get('http://localhost:8082/bug/status'+'/'+bugstatus);
+  }
+  //Get Bug by status and name
+  getBugNameandStatus(name:string,status:string ){
+    return this.http.get('http://localhost:8082/bug/search/'+name+'?status='+status );
   }
 }
