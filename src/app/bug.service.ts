@@ -21,6 +21,10 @@ export class BugService {
       responseType:"text"
     });
   }
+  //Delete bug
+  delete(bugid:string) {
+    return this.http.delete('http://localhost:8082/bug'+'/'+bugid);
+  }
   // View All Bugs
   getAllBugs(){
     return this.http.get('http://localhost:8082/bug')

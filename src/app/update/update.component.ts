@@ -14,7 +14,7 @@ bugResult:any;
   name: string = '';
   remainingText=50 ;
   remainingText1= 100;
-  
+
   constructor(private bugService:BugService) { }
   valueChange(value: number) {
     this.remainingText = 50 - value;
@@ -31,13 +31,21 @@ update()
     alert('Bug added..')
 
   },
-    (  error: { ok: any; })=> {
-    console.log(error);
-    if(!error.ok)
+  error=> {
+    if(!error.ok){
+      let message:string=error.headers.get("error");
+      if(message.length<100){
+        alert("Error !! :"+error.headers.get("error"));
+      }
+      else if(message.indexOf('ETA')>-1){
+       alert("ETA Date cannot be past date");
+      }
+      else{
+        alert("Error occured");
+      }
 
-    alert('error Happened')
+    }
   })
-
 }
 
 getBugName() {

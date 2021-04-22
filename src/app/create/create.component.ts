@@ -65,12 +65,20 @@ export class CreateComponent implements OnInit {  //controller
     const promise = this.bugService.save(this.bug);
     promise.subscribe(response=> {
       console.log(response);
-      alert('user added..')
+      alert('Bug added..')
      // this.bugArray.push(Object.assign({}, this.bug));
     },
     error=> {
-      console.log(error);
-      alert('error Happened')
+     if(!error.ok){
+       let message:string=error.headers.get("error");
+       if(message.indexOf('ETA')>-1){
+        alert("ETA Date cannot be past date");
+       }
+       else{
+         alert("Error occured");
+       }
+
+     }
     })
 
   }

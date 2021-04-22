@@ -41,9 +41,10 @@
     <th>Submitted On</th>
     <th>ETA Date</th>
     <th>Status</th>
+    <th>Delete</th>
   </tr>
   <tbody>
-    <tr *ngFor='let bug of bugArray'>
+    <tr *ngFor='let bug of bugArray; index as i'>
       <td>{{bug.name}}</td>
       <td>{{bug.priority}}</td>
       <td>{{bug.type}}</td>
@@ -51,6 +52,9 @@
       <td>{{bug.submittedOn| date: 'd/M/yy'}}</td>
       <td>{{bug.etaDate| date: 'd/M/yy'}}</td>
       <td>{{bug.status}}</td>
+      <td>
+      <button class="btn btn-danger" style= " margin-left: 10px;"  (click)='this.deleteBug(bug.id,i)' >DELETE </button>
+        </td>
     </tr>
   </tbody>
 </table>

@@ -99,6 +99,10 @@ export class SearchComponent implements OnInit {
       this.bugArray=response})
   }
 }
+deleteBug(id:string, index:number){
+  const observable=this.bugService.delete(id);
+  observable.subscribe(response=>this.bugArray.splice(index,1));
+}
   ngOnInit(): void {
 
   }
