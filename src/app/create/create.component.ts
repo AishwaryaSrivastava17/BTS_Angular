@@ -26,15 +26,15 @@ export class CreateComponent implements OnInit {  //controller
     if (!this.bug.name.trim()) {
       alert("Bug name is empty");
     }
-    else if (this.bug.name.length > 10) {
-      alert("Bug name cannot be more than 10 character");
+    else if (this.bug.name.length > 15) {
+      alert("Bug name cannot be more than 15 character");
     }
     else if (!this.bug.projectId.trim()) {
       alert("Project id is empty");
     }
 
     else if (!this.bug.testerId.trim()) {
-      alert("Tster id is empty");
+      alert("Tester id is empty");
     }
 
     else if (!this.bug.product.trim()) {
@@ -52,8 +52,8 @@ export class CreateComponent implements OnInit {  //controller
     else if (!this.bug.synopsis.trim()) {
       alert("Synopsis is empty");
     }
-    else if (this.bug.synopsis.length > 50) {
-      alert("Synopsis cannot be more than 50 character");
+    else if (this.bug.synopsis.length > 70) {
+      alert("Synopsis cannot be more than 70 character");
     }
     else if (!this.bug.description.trim()) {
       alert("Please provide description");

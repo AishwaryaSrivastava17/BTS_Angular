@@ -103,7 +103,7 @@
     <div class="row fieldRow">
       <div class="col-sm-6">
         <label for="synopsis">Synopsis<span>*</span></label>
-				<textarea [(ngModel)]='bug.synopsis' (ngModelChange)='valueChange(bug.synopsis.length)' id='synopsis' class="form-control" name="synopsis" rows="2" placeholder="Synopsis should be between 10 and 50 characters" required></textarea>
+				<textarea [(ngModel)]='bug.synopsis' (ngModelChange)='valueChange(bug.synopsis.length)' id='synopsis' class="form-control" name="synopsis" rows="2" placeholder="Synopsis should be between 10 and 70 characters" required></textarea>
         <div>{{remainingText + " character left"}}</div>
       </div>
       <div class="col-sm-6">

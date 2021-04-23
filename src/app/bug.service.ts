@@ -32,7 +32,7 @@ export class BugService {
 
   //Get Bug by name
   getBugName(bugname:string ){
-    return this.http.get('http://localhost:8082/bug/name'+'/'+bugname);
+    return this.http.get('http://localhost:8082/bug'+'/'+bugname);
   }
   //Get Bug by status
   getBugStatus(bugstatus:string ){

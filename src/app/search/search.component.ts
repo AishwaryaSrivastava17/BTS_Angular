@@ -99,9 +99,22 @@ export class SearchComponent implements OnInit {
       this.bugArray=response})
   }
 }
-deleteBug(id:string, index:number){
+deleteBug(id:string, index:number,name:string){
+  if(confirm("Delete bug : "+name)){
+
+
   const observable=this.bugService.delete(id);
-  observable.subscribe(response=>this.bugArray.splice(index,1));
+  observable.subscribe(response=>
+    {
+      alert("Bug deleted");
+      this.bugArray.splice(index,1);
+}, error=>{
+  alert("Error occured");
+});
+  }
+  else{
+    alert("Delete not Done");
+  }
 }
   ngOnInit(): void {
 

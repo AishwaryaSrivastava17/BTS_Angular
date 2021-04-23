@@ -12,12 +12,12 @@ bug:Bug=new Bug();
 bugResult:any;
   bugArray:Bug[]=[];
   name: string = '';
-  remainingText=50 ;
+  remainingText=70 ;
   remainingText1= 100;
 
   constructor(private bugService:BugService) { }
   valueChange(value: number) {
-    this.remainingText = 50 - value;
+    this.remainingText = 70 - value;
    }
    valueChange1(value1: number) {
     this.remainingText1 = 100 - value1;
